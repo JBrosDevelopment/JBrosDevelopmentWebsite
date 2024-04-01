@@ -1,0 +1,470 @@
+<style>
+    :root { 
+    --selection-color: #c75d34; 
+    --selection-text-color: #fff;
+    --main-color: #5d80d3;
+    --secondary-color: #e9bd1f;
+    --header-color: #747474;
+    --text-color-1: #a2a2a2;
+    --topbar-color: #181818;
+    --back-color: #252628;
+}
+/*** Works on common browsers ***/
+::selection {
+    background-color: var(--selection-color);
+    color: var(--selection-text-color);
+} /*** Mozilla based browsers ***/
+::-moz-selection {
+    background-color: var(--selection-color);
+    color: var(--selection-text-color);
+} /***For Other Browsers ***/
+::-o-selection {
+    background-color: var(--selection-color);
+    color: var(--selection-text-color);
+} ::-ms-selection {
+    background-color: var(--selection-color);
+    color: var(--selection-text-color);
+} /*** For Webkit ***/
+::-webkit-selection {
+    background-color: var(--selection-color);
+    color: var(--selection-text-color);
+}
+.ubuntu-mono-regular {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+} .ubuntu-mono-bold {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+} .ubuntu-mono-regular-italic {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+} .ubuntu-mono-bold-italic {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.link{
+    color: var(--secondary-color);
+}
+
+body {
+    font-family: 'Ubuntu Mono', monospace;
+    background-color: var(--back-color);
+    color: #fff;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    position: relative;
+    background-color: var(--topbar-color);
+    height: 80px;
+    padding: 0 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    position: absolute;
+    left: 20px;
+    top: 50%; 
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: var(--main-color);
+}
+
+.nav-links {
+    position: absolute;
+    right: 20px;
+    top: 50%; 
+    transform: translateY(-50%);
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--main-color);
+}
+
+.toggle-button {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        margin-top: 20px;
+        position: static;
+        margin-right: auto; 
+    }
+
+    .nav-links {
+        padding: 20px;
+        background-color: var(--topbar-color);
+        z-index: 9999;
+        position: absolute;
+        top:150px;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav-links.active li {
+        margin: 10px 0;
+    }
+
+    .nav-link {
+        display: block;
+    }
+
+    .toggle-button {
+        display: block;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    max-width: 600px;
+    height: 300px;
+    line-height: 1.5;
+    margin: 15px auto; 
+    margin-top: 150px;
+    text-align: center;
+    font-size: large;
+}
+.home button, .projects button {
+    color: var(--secondary-color);
+    background-color: transparent;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 20px;
+    border-color: var(--secondary-color);
+    border-radius: 5px;
+}
+.home h3, .projects h3 {
+    color: var(--text-color-1);
+}
+.home p, .projects p {
+    color: var(--text-color-1);
+}
+.home a, .projects a {
+    color: var(--secondary-color);
+}
+.home .header, .projects .header {
+    color: var(--header-color);
+    margin-bottom: 10px;
+}
+.projects {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+    margin: 0 auto;
+    text-align: center;
+    font-size: large;
+    flex-wrap: wrap;
+}
+.projects-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 1000px;
+    line-height: 1.5;
+    margin: 0 auto;
+    margin-top: 15px;
+    text-align: center;
+    font-size: large;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.box-square {
+    width: 275px;
+    height: 275px;
+    margin: 25px;
+    background-color: var(--header-color);
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+.box-wide {
+    width: auto;
+    height: auto;
+    margin: 25px;
+    margin-left:  10vh;
+    margin-right: 10vh;
+    padding: 10px;
+    padding-bottom: 20px;
+    background-color: var(--header-color);
+    border-radius: 5px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+.box-square h1, .box-wide h1 {
+    color:#fff;
+}
+.box-square p, .box-wide p {
+    color:#232323;
+}
+.box-square img, .box-wide img {
+    width: 90%;
+    border-radius: 5px;
+    max-height: 130px;
+    object-fit: scale-down;
+}
+.other-projects {
+    width: 325px !important;
+}
+.particle {
+    display: block;
+    width: 100%;
+    height: 25%;
+    overflow: hidden;
+    margin-top: 80px;
+}
+@media (max-width:600px) {
+    .box-wide{
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .home {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .particle {
+        margin-top: 200px;
+    }
+}
+@media (max-width:390px) {
+    .other-projects{
+        padding: 0px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+@media (max-width:360px) {
+    .other-projects{
+        padding: 0px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        width: 300px !important;
+        height: 325px;
+    }
+}
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <link type="stylesheet" href="style.css">
+    <!-- Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo-nav">
+                    <a style="text-decoration:none;" href="/"><h1 class="logo">JBros Development</h1></a>
+                    <ul class="nav-links">
+                        <li><a href="/" class="nav-link">Home</a></li>
+                        <li><a href="https://jbrosdev.hashnode.dev/" class="nav-link">Blog</a></li>
+                        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="/projects.html" class="nav-link">Projects</a></li>
+                    </ul>
+                </div>
+                <button class="toggle-button">&#9776;</button>
+            </div>
+        </nav>
+    </header>
+    <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        const navLinks = document.querySelector('.nav-links');
+
+        toggleButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+<html>
+<head>
+    <title>JBros Development</title>
+</head>
+<body>
+    <div class="home">
+        <h1 class="header"><strong>Hi, Welcome to JBros Development</strong></h1>
+        <h3>C# / Java Script / Html / CSS / Python / Game Development</h3>
+        <br>
+        <a href="/contact.html"><button><h1>Contact Me</h1></button></a> 
+        <br>
+        <p> Hey, I'm a young software developer. I've had a couple years of experience now and have worked on many projects and games.
+             While you're here, view my <a style="color: var(--secondary-color);" href="https://jbrosdev.hashnode.dev/">blog</a> and see some of my projects. </p>
+    </div>
+</body>
+</html>
+<html>
+    <body>
+        <style>
+        </style>
+        <div class="particle" id="particles-js"></div>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script>
+            /* Configure particles.js */
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 75,
+                        "density": {
+                            "enable": true,
+                            "value_area": 1000
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 3
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 20,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 4,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 30,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 150,
+                            "duration": 0.3
+                        },
+                        "push": {
+                            "particles_nb": 3
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        </script>
+    </body>
+    </html>
