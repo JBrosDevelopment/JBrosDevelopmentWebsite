@@ -253,11 +253,19 @@ body {
 .box-square p, .box-wide p {
     color:#232323;
 }
+.box-wide p {
+    padding: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 .box-square img, .box-wide img {
     width: 90%;
     border-radius: 5px;
     max-height: 130px;
     object-fit: scale-down;
+}
+.big-image .box-wide img {
+    object-fit: contain;
 }
 .other-projects {
     width: 325px !important;
@@ -340,16 +348,20 @@ body {
         <h1 class="header"><strong>Projects</strong></h1>
     </div>
     <div class="projects-title">
-        <h2 class="header"><strong>Programming Language</strong></h2>
-        <p>This is the custom programming language I'm working on</p>
+        <h2 class="header"><strong>Programming Languages</strong></h2>
+        <p>These are some programming languages I've made</p>
     </div>
     <div class="projects">
         <a href="https://github.com/EZCodeLanguage/EZCode"><div class="box-wide">
             <img alt="Project Icon" src="https://raw.githubusercontent.com/JBrosDevelopment/EZCode/master/docs/Images/EZCode_Wide_Logo.png">
-            <p> A custom programming language made with C#. Originally made for easy WInForms development with versions 1-2. 
-                Currently I'm working on version 3 which detaches from WinForms. It will include many awesome features including
-                a package manager and the ability to make custom packages with C# and EZCode. It has a very unique syntax 
-                compared to other languages. </p>
+            <p> A custom object oriented programming language made with C#. Originally made for easy WInForms development with versions 1-2. 
+                Version 3 detaches from WinForms and includes awesome features like a package manager and the ability
+                to make custom packages with C# and EZCode. It has a very unique syntax compared to other languages. </p>
+        </div></a>
+        <a class="big-image" href="https://github.com/JBrosDevelopment/Norma"><div class="box-wide">
+            <img alt="Project Icon" src="https://raw.githubusercontent.com/JBrosDevelopment/Norma/main/images/Norma%20(Wide).png">
+            <p> Norma is a functional based programming language built in C# made to be extremely simple. It's syntax is similar to Python 
+                and JavaScript, but has my own custom spin on it.</p>
         </div></a>
     </div>
     <div class="projects-title">
